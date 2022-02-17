@@ -1,0 +1,19 @@
+{
+  "name": "webpack-custom-plugin",
+  "version": "1.0.0",
+  "description": "custom plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "xp",
+  "license": "ISC",
+  "devDependencies": {
+    "compressing": "^1.5.1",
+    "css-loader": "^6.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
