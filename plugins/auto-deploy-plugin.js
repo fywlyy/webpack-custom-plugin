@@ -2,9 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const compressing = require('compressing');
 const { execSync } = require('child_process');
-const inquirer = require('inquirer');
-
-const prompt = inquirer.prompt;
+const { prompt } = require('inquirer');
 
 class AutoDeployPlugin {
     constructor(options) {
@@ -60,6 +58,7 @@ class AutoDeployPlugin {
                         default: true
                     }]).then((value) => {
                         console.log('选择结果：', value);
+                        // TODO 执行发布
                     })
                 }).catch(err=>{
                     console.error(err);
