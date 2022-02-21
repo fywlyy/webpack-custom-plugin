@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const compressing = require('compressing');
 const { execSync } = require('child_process');
+const inquirer = require('inquirer');
+
+const prompt = inquirer.prompt;
 
 class AutoDeployPlugin {
     constructor(options) {
@@ -49,6 +52,15 @@ class AutoDeployPlugin {
                     execSync(`git commit -m "update ${this.zipId}"`, { cwd: this.zipDir });
                     execSync('git push --progress "origin" master:master', { cwd: this.zipDir });
                     console.log(`上传id为 ${this.zipId} 的zip包成功`);
+
+                    prompt([{
+                        type: 'confirm',
+                        name: 'deploy',
+                        message: '是否发布到测试环境',
+                        default: true
+                    }]).then((value) => {
+                        console.log('选择结果：', value);
+                    })
                 }).catch(err=>{
                     console.error(err);
                 });
